@@ -98,13 +98,13 @@ test_hex=hexagon(0,0,150,90,my_world)
 #for i in test_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
 
 
-n=3
+n=2
 
-print ('making subhexagons for',n,'level tree')
+#print ('making subhexagons for',n,'level tree')
 
 #cProfile.run('test_hex.make_subhexagons(n,my_world)')
 test_hex.make_subhexagons(n,my_world)
-print ('finished making subhexagons')
+#print ('finished making subhexagons')
 
 #i=0
 #for j in range(0,n+1):
@@ -122,73 +122,84 @@ print ('finished making subhexagons')
 
 test_hex_controler = hexcontrol.hexcontrol(test_hex,my_world)
 
-print ('starting to sort adjacent lists')
+#print ('starting to sort adjacent lists')
 #cProfile.run('test_hex_controler.sort_adjacent_hexs()')
 test_hex_controler.sort_adjacent_hexs()
-print ('finished sorting adjacent lists')
+#print ('finished sorting adjacent lists')
 
-# test keyize'ing and unkeyize'ing pointers
-print ('keyizing pointers')
-test_hex_controler.keyize_pointers(my_world)
-print ('unkeyizing pointers')
-test_hex_controler.unkeyize_pointers()
-# make sure pointers are correct for children by drawing hex tree
-
-figure()
-print ('drawing all sublevels ',min(7,n))
-print ('drawing all sublevels')
-test_hex.draw_all_sublevels(min(7,n))
-axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-
-figure()
-print ('drawing  nth sublevel ',min(7,n))
-test_hex.draw_nth_sublevel(min(7,n))
-axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-
-
-
-
-##print 'saving dictionary'
-##file_name = 'testout11.txt'
-##
-##test_hex_controler.save_hex_tree(file_name,my_world)
-##print 'done saving dictionary'
-
-#file_name = 'testout7.txt'
-#print('reading dictionaries from',file_name)
-## make a temporary root hex
-#root_hex = hexagon(0,0,0,0,my_world)
-#root_hex_controler = hexcontrol.hexcontrol(root_hex,my_world)
-## load the stored dictionary into the root's dictionary, making hexs for each dictionary entry
-#test_hex = root_hex_controler.read_dictionary(file_name,my_world)
-#print ('test_hex is ',test_hex)
-#print ('location is ',test_hex.location.x1, test_hex.location.x2)
-#print ('outside diameter is ',test_hex.outside_diameter)
-#temp = test_hex.orientation
-#print ('radian angle is ',test_hex.heading_to_radianangle(temp))
-#print ('outside diameter is',test_hex.outside_diameter,'; inside diameter is ',test_hex.inside_diameter())
-#print (test_hex.calculate_outside_diameter(test_hex.inside_diameter()),' is the recalcuated outside diameter based on the inside diameter')
-
-#print ('the vertices of test_hex are located at ',)
-#for i in test_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
-
-#print ('initializing hex controler')
-#test_hex_controler = hexcontrol.hexcontrol(test_hex,my_world)
-#n = test_hex.depth()
-#print ('depth of newly read in tree is',n)
-#print ('done reading dictionaries')
-
-#print ('executing path calculator')
-#test_path = path_calculator.path_calculator(test_hex_controler)
-#print ('number of elements added to stack on look back is',test_path.num_better_paths)
-
-#print ('drawing ripples out from origin')
-#for ripple_level in range(0,test_path.num_ripples[0]):
-###    if (ripple_level % 15) == 1:
-###        test_path.draw_ripple(ripple_level)
-#    test_path.draw_ripple(ripple_level)
+## test keyize'ing and unkeyize'ing pointers
+#print ('keyizing pointers')
+#test_hex_controler.keyize_pointers(my_world)
+#print ('unkeyizing pointers')
+#test_hex_controler.unkeyize_pointers()
+## make sure pointers are correct for children by drawing hex tree
 
 #figure()
+#print ('drawing all sublevels ',min(7,n))
+#print ('drawing all sublevels')
+#test_hex.draw_all_sublevels(min(7,n))
+#axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+
+#figure()
+#print ('drawing  nth sublevel ',min(7,n))
+#test_hex.draw_nth_sublevel(min(7,n))
+#axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+
+##show()
+
+
+
+print ('saving dictionary')
+file_name = 'testout2.txt'
+
+test_hex_controler.save_hex_tree(file_name,my_world)
+print ('done saving dictionary')
+
+file_name = 'testout2.txt'
+print('reading dictionaries from',file_name)
+# make a temporary root hex
+root_hex = hexagon(0,0,0,0,my_world)
+root_hex_controler = hexcontrol.hexcontrol(root_hex,my_world)
+# load the stored dictionary into the root's dictionary, making hexs for each dictionary entry
+test_hex = root_hex_controler.read_dictionary(file_name,my_world)
+print ('test_hex is ',test_hex)
+print ('location is ',test_hex.location.x1, test_hex.location.x2)
+print ('outside diameter is ',test_hex.outside_diameter)
+temp = test_hex.orientation
+print ('radian angle is ',test_hex.heading_to_radianangle(temp))
+print ('outside diameter is',test_hex.outside_diameter,'; inside diameter is ',test_hex.inside_diameter())
+print (test_hex.calculate_outside_diameter(test_hex.inside_diameter()),' is the recalcuated outside diameter based on the inside diameter')
+
+print ('the vertices of test_hex are located at ',)
+for i in test_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
+
+print ('initializing hex controler')
+test_hex_controler = hexcontrol.hexcontrol(test_hex,my_world)
+n = test_hex.depth()
+print ('depth of newly read in tree is',n)
+print ('done reading dictionaries')
+
+print('Generating random cost and benefits')
+test_hex_controler.generate_random_costs()
+
+
+print ('saving dictionary')
+file_name = 'testout2.txt'
+
+test_hex_controler.save_hex_tree(file_name,my_world)
+print ('done saving dictionary')
+
+print ('executing path calculator')
+test_path = path_calculator.path_calculator(test_hex_controler)
+print ('number of elements added to stack on look back is',test_path.num_better_paths)
+
+print ('drawing ripples out from origin')
+for ripple_level in range(0,test_path.num_ripples[0]):
+##    if (ripple_level % 15) == 1:
+##        test_path.draw_ripple(ripple_level)
+    test_path.draw_ripple(ripple_level)
+
+figure()
 
 #print ('done rippling out from origin')
 
@@ -490,4 +501,3 @@ axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my
 
 
 
-show()

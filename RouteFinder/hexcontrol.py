@@ -203,7 +203,9 @@ class hexcontrol:
             return current_hex
 
     def generate_random_costs(self):
-        ### populate costs and benefits at the lowest level randomly, 3 costs and 2 benefits per ###
+        ### populate costs and benefits to the lowest level randomly, 3 costs and 2 benefits per ###
+        # costs is a list of 3 costs for going from each adjacent on the adjacent list to the current hex
+        # benefits is a list of 2 benefits for arriving at the current hex
         temp_hex = self.source_hex
 ##        print('depth of tree is '+str(self.source_hex.depth()))
         for i in range(0,self.source_hex.depth()+1): # go through levels of hexagon tree
@@ -299,37 +301,43 @@ class hexcontrol:
 
     def unkeyize_pointers(self):
         #convert all references to other hexagons into object references
-##        num_parents = []
-##        num_children = []
-##        num_adjacent = []
+        #num_parents = []
+        #num_children = []
+        #num_adjacent = []
         for level in range(0,len(self.roots)):
             for temp_key in self.roots[level].hexagon_dictionary:
                 temp1_hex = self.roots[level].hexagon_dictionary[temp_key]
                 if level > 0:
                     temp_len = len(temp1_hex.parents)
                     for i in range(0,temp_len): # convert parents keys to list of hex pointers
-                        temp1_hex.parents[i] = self.roots[level-1].hexagon_dictionary[temp1_hex.parents[i]]
-##                    num_parents.append(temp_len)
+                        try:
+                            temp1_hex.parents[i] = self.roots[level-1].hexagon_dictionary\
+                                [temp1_hex.parents[i]]
+                        except:
+                            print('i ',i,'level - 1 ',level-1,'temp1_hex.parents[i] ',\
+                                temp1_hex.parents[i])
+                            raise hell
+                    #num_parents.append(temp_len)
                 if level < len(self.roots):
                     temp_len = len(temp1_hex.children)
                     for i in range(0,temp_len): # convert children keys to list of hex pointers
                         temp1_hex.children[i] = self.roots[level+1].hexagon_dictionary[temp1_hex.children[i]]
-##                    num_children.append(temp_len)
+                    #num_children.append(temp_len)
                 temp_len = len(temp1_hex.adjacent)
                 for i in range(0,temp_len): # convert adjacent keys to list of hex pointers
                     temp1_hex.adjacent[i] = self.roots[level].hexagon_dictionary[temp1_hex.adjacent[i]]
-##                num_adjacent.append(temp_len)
+                #num_adjacent.append(temp_len)
                 
-##        pylab.hist(num_parents,bins=5)
-##        pylab.title('Parents Histogram')
-##        pylab.figure()
-##        pylab.hist(num_children,bins=8)
-##        pylab.title('Children Histogram')
-##        pylab.figure()
-##        pylab.hist(num_adjacent,bins=7)
-##        pylab.title('Adjacent Histogram')
-##        pylab.figure()
-##        pylab.show()
+        #pylab.hist(num_parents,bins=5)
+        #pylab.title('Parents Histogram')
+        #pylab.figure()
+        #pylab.hist(num_children,bins=8)
+        #pylab.title('Children Histogram')
+        #pylab.figure()
+        #pylab.hist(num_adjacent,bins=7)
+        #pylab.title('Adjacent Histogram')
+        #pylab.figure()
+        #pylab.show()
         return None
 
     
@@ -360,23 +368,26 @@ class hexcontrol:
         line_no = 0
         self.roots = []
         current_level = -1
-##        num_parents = []
-##        num_children = []
-##        num_adjacent = []
-##        print(str(os.getcwd())+' is the current working directory')
+        num_parents = []
+        num_children = []
+        num_adjacent = []
+        #print(str(os.getcwd())+' is the current working directory')
         f=open(file_name,'r')
         for line in f:
-            temp_line = line[0:-2]
+            temp_line = line
+            #print(temp_line)
             x=eval(temp_line)
             if line_no == 0:# we a reading in data for a new hex, starting with the key
+                #print('starting new hex')
                 temp_hex = hexagon.hexagon(0,0,0,0,my_world) #make a new hexagon
                 temp_hex.key = x
                 if len(temp_hex.key)-1 > current_level: # we are starting to read hex's from the next level
+                    # set up this hex as a temporary root hex until we come across the real root
                     current_level +=1
                     self.roots.append(temp_hex)
                     self.roots[current_level].hexagon_dictionary = {}
                     current_root_hex = temp_hex 
-                # check to see if this is the root hex for the next level
+                # check to see if this is the real root hex for the next level
                 # that is, it has all 0's for a key
                 might_be_root = True
                 for i in range(0,len(temp_hex.key)):
@@ -386,8 +397,6 @@ class hexcontrol:
                 if might_be_root == True:
                     # move the level dictionary over to this hexagon
                     temp_hex.hexagon_dictionary = current_root_hex.hexagon_dictionary
-                    # fix the old current_root_hex's dictionary
-                    current_root_hex.hexagon_dictionary = {(0,):current_root_hex}
                     # fix the roots to point to this hex
                     self.roots[current_level] = temp_hex
                     # change current_root_hex to point to this new hex
@@ -400,42 +409,47 @@ class hexcontrol:
                 temp_hex.orientation = x
             elif line_no == 4:#parent list as list of keys
                 temp_hex.parents = x
-##                num_parents.append(len(x))
+                num_parents.append(len(x))
             elif line_no == 5: #children list as list of keys
                 temp_hex.children = x
-##                num_children.append(len(x))
+                num_children.append(len(x))
             elif line_no == 6: # adjacent list as list of keys
                 temp_hex.adjacent = x
-##                num_adjacent.append(len(x))
+                num_adjacent.append(len(x))
             elif line_no == 7: #costs list
                 temp_hex.costs = x
-            else: # line_no == 8, benefit
+            elif line_no == 8: # line_no == 8, benefit
                 temp_hex.benefit = x
                 # we now have all the basic pieces in temp_hex, update the dictionary
                 current_root_hex.hexagon_dictionary[temp_hex.key]=temp_hex
+                #print('last line of a hexagon')
                 
             if line_no == 8:
                 line_no = 0
             else:
                 line_no +=1
                 
-        # we are done reading in from file
-##        pylab.hist(num_parents,bins=5)
-##        pylab.title('Parents Histogram')
-##        pylab.figure()
-##        pylab.hist(num_children,bins=8)
-##        pylab.title('Children Histogram')
-##        pylab.figure()
-##        pylab.hist(num_adjacent,bins=7)
-##        pylab.title('Adjacent Histogram')
-##        pylab.figure()
-##        pylab.show()
+        ## we are done reading in from file
+        #pylab.hist(num_parents,bins=5)
+        #pylab.title('Parents Histogram')
+        #pylab.figure()
+        #pylab.hist(num_children,bins=8)
+        #pylab.title('Children Histogram')
+        #pylab.figure()
+        #pylab.hist(num_adjacent,bins=7)
+        #pylab.title('Adjacent Histogram')
+        #pylab.figure()
+        #pylab.show()
 
-##        for i in range(0,len(self.roots)):
-##            print('Level '+str(i)+' Root key is')
-##            print(str(self.roots[i].key))
-##            print('Size of Level Dictionary is')
-##            print(str(len(self.roots[i].hexagon_dictionary)))
+        #for i in range(0,len(self.roots)):
+        #    print('Level '+str(i)+' Root key is')
+        #    print(str(self.roots[i].key))
+        #    print('Size of Level Dictionary is')
+        #    print(str(len(self.roots[i].hexagon_dictionary)))
+        #    print(self.roots[i].hexagon_dictionary)
+            #for tempKey in self.roots[i].hexagon_dictionary.keys():
+            #    tempHex = self.roots[i].hexagon_dictionary[tempKey]
+            #    print(tempKey,tempHex,tempHex.parents,tempHex.adjacent,tempHex.children)
         # we should now have recreated the hexagon tree with root_hex as the root but
         # with all parent, child, and adjacent relationships in the form of keys
         

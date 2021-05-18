@@ -16,10 +16,10 @@ class world:
         type_world = 'cartesian'
         self.type_world = 'cartesian'
         # aspect ratios used in drawing on a computer screen
-        self.x1_lower_limit = -640
-        self.x1_upper_limit =  640
-        self.x2_lower_limit = -480
-        self.x2_upper_limit =  640
+        self.x1_lower_limit = -1600
+        self.x1_upper_limit =  1600
+        self.x2_lower_limit = -1080
+        self.x2_upper_limit =  1080
         # accuracy_factor is chosen to give 10 meter accuracy anywhere on the globe when using lat/longs
         self.accuracy_factor = 359251200
 
