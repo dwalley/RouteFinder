@@ -189,8 +189,9 @@ class path_calculator:
         if self.num_ripples[current_sextant] >= 1: # cases for ripples 0 and 1 were previously handled as special cases
             not_first_element = False
             ripple_index = self.num_ripples[current_sextant]
-##            print 'in step forward'
-##            print 'current ripple sextant is',self.ripple_sextant_lists[current_sextant][ripple_index]
+            #print ('in step forward')
+            #print ('current ripple sextant is',current_sextant)
+            #print (self.ripple_sextant_lists[current_sextant][ripple_index])
             for temp_path_element in self.ripple_sextant_lists[current_sextant][ripple_index]:
                 if not_first_element:
                     candidate_best_step_out_indices = [((temp_path_element.sextant-3)%6),\
@@ -250,20 +251,20 @@ class path_calculator:
         return current_adjacent_index
 
     def update_best_path(self,path_element,adjacent_index):
-        # updates path to path_element hex formed by going from adjacent hex to path_element hex #
-##        print 'in update best path'
-##        print 'path element ripple number is',path_element.ripple_number
-##        print 'path element sextant is',path_element.sextant
-##        print 'adjacent index is',adjacent_index
+         #updates path to path_element hex formed by going from adjacent hex to path_element hex
+        #print ('in update best path')
+        #print ('path element ripple number is',path_element.ripple_number)
+        #print ('path element sextant is',path_element.sextant)
+        #print ('adjacent index is',adjacent_index)
         adjacent_hexagon = path_element.hexagon.adjacent[adjacent_index]
         adjacent_path_element = self.paths_dictionary[adjacent_hexagon.key]
         path_element.predecessor = adjacent_path_element
         path_element.accrued_cost = adjacent_path_element.accrued_cost +\
                                     adjacent_path_element.hexagon.costs[((adjacent_index + 3) % 6)]
-##        print 'path element accrued cost is',path_element.accrued_cost
+        #print ('path element accrued cost is',path_element.accrued_cost)
         path_element.accrued_benefit = adjacent_path_element.accrued_benefit + path_element.hexagon.benefit
-##        print 'in update_best_path'
-##        print 'adjacent path element hexagon costs ',adjacent_path_element.hexagon.costs
+        #print ('in update_best_path')
+        #print ('adjacent path element hexagon costs ',adjacent_path_element.hexagon.costs)
         path_element.total_cost_benefit = path_element.compute_total_cost_benefit\
                                           (adjacent_path_element.total_cost_benefit,\
                                            adjacent_path_element.hexagon.costs[(adjacent_index + 3) % 6],
@@ -296,12 +297,13 @@ class hex_path_element:
         temp_hex_path_element.hexagon.draw() #draw the origin hexagon
 
     def costs_benefits_less_than(self,other_total_cost_benefit,costs,benefits):
-        # returns value of cost_benefit with costs and benefits factored in if it is less than self.total_cost_benefit #
-        # encapsulates comparison of costs and benefits
+        # returns value of cost_benefit with costs factored in if it is less than self.total_cost_benefit #
+        # encapsulates comparison of costs.  Note can not include benefits in optimization.  
+        # They are just accounted for.
         for cost in costs:
             other_total_cost_benefit += cost
-        for benefit in benefits:
-            other_total_cost_benefit -= benefit
+        if (self.total_cost_benefit == None):
+            return False
         if other_total_cost_benefit < self.total_cost_benefit:
             return other_total_cost_benefit
         else:

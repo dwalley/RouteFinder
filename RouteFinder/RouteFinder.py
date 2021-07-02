@@ -162,15 +162,15 @@ root_hex = hexagon(0,0,0,0,my_world)
 root_hex_controler = hexcontrol.hexcontrol(root_hex,my_world)
 # load the stored dictionary into the root's dictionary, making hexs for each dictionary entry
 test_hex = root_hex_controler.read_dictionary(file_name,my_world)
-print ('test_hex is ',test_hex)
-print ('location is ',test_hex.location.x1, test_hex.location.x2)
-print ('outside diameter is ',test_hex.outside_diameter)
+#print ('test_hex is ',test_hex)
+#print ('location is ',test_hex.location.x1, test_hex.location.x2)
+#print ('outside diameter is ',test_hex.outside_diameter)
 temp = test_hex.orientation
-print ('radian angle is ',test_hex.heading_to_radianangle(temp))
-print ('outside diameter is',test_hex.outside_diameter,'; inside diameter is ',test_hex.inside_diameter())
-print (test_hex.calculate_outside_diameter(test_hex.inside_diameter()),' is the recalcuated outside diameter based on the inside diameter')
+#print ('radian angle is ',test_hex.heading_to_radianangle(temp))
+#print ('outside diameter is',test_hex.outside_diameter,'; inside diameter is ',test_hex.inside_diameter())
+#print (test_hex.calculate_outside_diameter(test_hex.inside_diameter()),' is the recalcuated outside diameter based on the inside diameter')
 
-print ('the vertices of test_hex are located at ',)
+#print ('the vertices of test_hex are located at ',)
 for i in test_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
 
 print ('initializing hex controler')
@@ -191,15 +191,18 @@ print ('done saving dictionary')
 
 print ('executing path calculator')
 test_path = path_calculator.path_calculator(test_hex_controler)
+#raise caine
 print ('number of elements added to stack on look back is',test_path.num_better_paths)
+
+figure()
 
 print ('drawing ripples out from origin')
 for ripple_level in range(0,test_path.num_ripples[0]):
 ##    if (ripple_level % 15) == 1:
 ##        test_path.draw_ripple(ripple_level)
+    print('ripple level is',ripple_level)
     test_path.draw_ripple(ripple_level)
 
-figure()
 
 #print ('done rippling out from origin')
 
@@ -498,6 +501,8 @@ figure()
 
 ##print 'checking number of children'
 ##test_hex_controler.check_children()
+
+show()
 
 
 
