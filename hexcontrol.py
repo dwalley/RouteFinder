@@ -209,7 +209,7 @@ class hexcontrol:
         temp_hex = self.source_hex
 ##        print('depth of tree is '+str(self.source_hex.depth()))
         for i in range(0,self.source_hex.depth()+1): # go through levels of hexagon tree
-            print('generating random costs and benefits for level '+str(i))
+            #print('generating random costs and benefits for level '+str(i))
             for temp_key,temp1_hex in temp_hex.get_center().hexagon_dictionary.items():
                 temp1_hex.costs = [[random.random(),random.random(),random.random()] for j in temp1_hex.adjacent]
                 # temp1_hex.benefit = [random.random(),random.random()]
