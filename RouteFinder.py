@@ -204,189 +204,217 @@ for ripple_level in range(0,test_path.num_ripples[0]):
     #print('ripple level is',ripple_level)
     test_path.draw_ripple(ripple_level)
 
-
 print ('done rippling out from origin')
+show()
 
-print ('translating field')
-test_hex_controler.translate_hex_field(location(500,0))
-print ('done translating field')
+##print ('translating field')
+##test_hex_controler.translate_hex_field(location(500,0))
+##print ('done translating field')
+##
+##print ('source_hex is ',test_hex_controler.source_hex)
+##print ('location is ',test_hex_controler.source_hex.location.x1,\
+##      test_hex_controler.source_hex.location.x2)
+##print ('outside diameter is ',test_hex_controler.source_hex.outside_diameter)
+##temp = test_hex_controler.source_hex.orientation
+##print ('radian angle is ',test_hex.heading_to_radianangle(temp))
+##print ('outside diameter is',test_hex_controler.source_hex.outside_diameter,\
+##      '; inside diameter is ',test_hex_controler.source_hex.inside_diameter())
+##print (test_hex_controler.source_hex.calculate_outside_diameter(test_hex.inside_diameter()),\
+##      ' is the recalcuated outside diameter based on the inside diameter')
+##
+##print ('the vertices of test_hex are located at ',)
+##for i in test_hex_controler.source_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
+##
+##print ('executing path calculator')
+##test_path = path_calculator.path_calculator(test_hex_controler)
+##print ('number of elements added to stack on look back is',test_path.num_better_paths)
+##
+##print ('drawing ripples out from origin')
+##figure()
+##for ripple_level in range(0,test_path.num_ripples[0]):
+####    if (ripple_level % 15) == 1:
+####        test_path.draw_ripple(ripple_level)
+##    test_path.draw_ripple(ripple_level)
+##
+##print ('done rippling out from origin')
+##show()
 
-print ('source_hex is ',test_hex_controler.source_hex)
-print ('location is ',test_hex_controler.source_hex.location.x1,\
-      test_hex_controler.source_hex.location.x2)
-print ('outside diameter is ',test_hex_controler.source_hex.outside_diameter)
-temp = test_hex_controler.source_hex.orientation
-print ('radian angle is ',test_hex.heading_to_radianangle(temp))
-print ('outside diameter is',test_hex_controler.source_hex.outside_diameter,\
-      '; inside diameter is ',test_hex_controler.source_hex.inside_diameter())
-print (test_hex_controler.source_hex.calculate_outside_diameter(test_hex.inside_diameter()),\
-      ' is the recalcuated outside diameter based on the inside diameter')
 
-print ('the vertices of test_hex are located at ',)
-for i in test_hex_controler.source_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
+##print ('rotating field')
+##test_hex_controler.change_orientation(45)
+##print ('done rotating field')
+##
+##print ('source_hex is ',test_hex_controler.source_hex)
+##print ('location is ',test_hex_controler.source_hex.location.x1,\
+##      test_hex_controler.source_hex.location.x2)
+##print ('outside diameter is ',test_hex_controler.source_hex.outside_diameter)
+##temp = test_hex_controler.source_hex.orientation
+##print ('radian angle is ',test_hex.heading_to_radianangle(temp))
+##print ('outside diameter is',test_hex_controler.source_hex.outside_diameter,\
+##      '; inside diameter is ',test_hex_controler.source_hex.inside_diameter())
+##print (test_hex_controler.source_hex.calculate_outside_diameter(test_hex.inside_diameter()),\
+##      ' is the recalcuated outside diameter based on the inside diameter')
+##
+##print ('the vertices of test_hex are located at ',)
+##for i in test_hex_controler.source_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
+##
+##print ('executing path calculator')
+##test_path = path_calculator.path_calculator(test_hex_controler)
+##print ('number of elements added to stack on look back is',test_path.num_better_paths)
+##
+##print ('drawing ripples out from origin')
+##figure()
+##for ripple_level in range(0,test_path.num_ripples[0]):
+####    if (ripple_level % 15) == 1:
+####        test_path.draw_ripple(ripple_level)
+##    test_path.draw_ripple(ripple_level)
+##
+##print ('done rippling out from origin')
+##show()
 
-print ('executing path calculator')
-test_path = path_calculator.path_calculator(test_hex_controler)
-print ('number of elements added to stack on look back is',test_path.num_better_paths)
+##figure()
+##
+##print ('scaling field')
+##test_hex_controler.change_scale(30)
+##print ('done scaling field')
+##
+##print ('source_hex is ',test_hex_controler.source_hex)
+##print ('location is ',test_hex_controler.source_hex.location.x1,\
+##      test_hex_controler.source_hex.location.x2)
+##print ('outside diameter is ',test_hex_controler.source_hex.outside_diameter)
+##temp = test_hex_controler.source_hex.orientation
+##print ('radian angle is ',test_hex.heading_to_radianangle(temp))
+##print ('outside diameter is',test_hex_controler.source_hex.outside_diameter,\
+##      '; inside diameter is ',test_hex_controler.source_hex.inside_diameter())
+##print (test_hex_controler.source_hex.calculate_outside_diameter(test_hex.inside_diameter()),\
+##      ' is the recalcuated outside diameter based on the inside diameter')
+##
+##print ('the vertices of test_hex are located at ',)
+##for i in test_hex_controler.source_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
+##
+##print ('executing path calculator')
+##test_path = path_calculator.path_calculator(test_hex_controler)
+##print ('number of elements added to stack on look back is',test_path.num_better_paths)
+##print ('drawing ripples out from origin')
+##for ripple_level in range(0,test_path.num_ripples[0]):
+####    if (ripple_level % 15) == 1:
+####        test_path.draw_ripple(ripple_level)
+##    test_path.draw_ripple(ripple_level)
+##
+##print ('done rippling out from origin')
+##show()
 
-print ('drawing ripples out from origin')
-figure()
-for ripple_level in range(0,test_path.num_ripples[0]):
-##    if (ripple_level % 15) == 1:
-##        test_path.draw_ripple(ripple_level)
-    test_path.draw_ripple(ripple_level)
-
-print ('done rippling out from origin')
-
-
-print ('rotating field')
-test_hex_controler.change_orientation(45)
-print ('done rotating field')
-
-print ('source_hex is ',test_hex_controler.source_hex)
-print ('location is ',test_hex_controler.source_hex.location.x1,\
-      test_hex_controler.source_hex.location.x2)
-print ('outside diameter is ',test_hex_controler.source_hex.outside_diameter)
-temp = test_hex_controler.source_hex.orientation
-print ('radian angle is ',test_hex.heading_to_radianangle(temp))
-print ('outside diameter is',test_hex_controler.source_hex.outside_diameter,\
-      '; inside diameter is ',test_hex_controler.source_hex.inside_diameter())
-print (test_hex_controler.source_hex.calculate_outside_diameter(test_hex.inside_diameter()),\
-      ' is the recalcuated outside diameter based on the inside diameter')
-
-print ('the vertices of test_hex are located at ',)
-for i in test_hex_controler.source_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
-
-print ('executing path calculator')
-test_path = path_calculator.path_calculator(test_hex_controler)
-print ('number of elements added to stack on look back is',test_path.num_better_paths)
-
-print ('drawing ripples out from origin')
-figure()
-for ripple_level in range(0,test_path.num_ripples[0]):
-##    if (ripple_level % 15) == 1:
-##        test_path.draw_ripple(ripple_level)
-    test_path.draw_ripple(ripple_level)
-
-print ('done rippling out from origin')
-
-figure()
-
-print ('scaling field')
-test_hex_controler.change_scale(300)
-print ('done scaling field')
-
-print ('source_hex is ',test_hex_controler.source_hex)
-print ('location is ',test_hex_controler.source_hex.location.x1,\
-      test_hex_controler.source_hex.location.x2)
-print ('outside diameter is ',test_hex_controler.source_hex.outside_diameter)
-temp = test_hex_controler.source_hex.orientation
-print ('radian angle is ',test_hex.heading_to_radianangle(temp))
-print ('outside diameter is',test_hex_controler.source_hex.outside_diameter,\
-      '; inside diameter is ',test_hex_controler.source_hex.inside_diameter())
-print (test_hex_controler.source_hex.calculate_outside_diameter(test_hex.inside_diameter()),\
-      ' is the recalcuated outside diameter based on the inside diameter')
-
-print ('the vertices of test_hex are located at ',)
-for i in test_hex_controler.source_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
-
-print ('executing path calculator')
-test_path = path_calculator.path_calculator(test_hex_controler)
-print ('number of elements added to stack on look back is',test_path.num_better_paths)
-
-print ('drawing ripples out from origin')
-for ripple_level in range(0,test_path.num_ripples[0]):
-##    if (ripple_level % 15) == 1:
-##        test_path.draw_ripple(ripple_level)
-    test_path.draw_ripple(ripple_level)
-
-print ('done rippling out from origin')
-      
 # draw the last few ripples
 
-##print 'drawing last few ripples'
-##for i in range(15,20):
-##    test_path.draw_ripple(ripple_level-1-i)
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+##print('drawing last few ripples')
+### Uncomment next 5 lines only if the depth of the hex tree is at least 6
+######figure()
+######for i in range(15,20):
+######    test_path.draw_ripple(ripple_level-1-i)
+######axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+######show()
 ##figure()
 ##for i in range(10,15):
 ##    test_path.draw_ripple(ripple_level-1-i)
 ##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+##show()
 ##figure()
 ##for i in range(5,10):
 ##    test_path.draw_ripple(ripple_level-1-i)
 ##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+##show()
 ##figure()
 ##for i in range(0,5):
 ##    test_path.draw_ripple(ripple_level-1-i)
 ##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##figure()
+##show()
 
+print('drawing various lines')
+figure()
+p_start = location(0,0)
+p_end = location(100,100)
+previous_hex = None
+for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+    temp_hex.draw()
+    if previous_hex != None:
+        temp_line = line(previous_hex.location,temp_hex.location)
+        temp_line.draw_line()
+    previous_hex = temp_hex
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+show()
 
-##print 'drawing various lines'
-##p_start = location(0,0)
-##p_end = location(100,100)
-##previous_hex = None
-##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-##    temp_hex.draw()
-##    if previous_hex != None:
-##        temp_line = line(previous_hex.location,temp_hex.location)
-##        temp_line.draw_line()
-##    previous_hex = temp_hex
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-####figure()
-##
-##p_start = location(0,0)
-##p_end = location(0,500)
-##previous_hex = None
-##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-##    temp_hex.draw()
-##    if previous_hex != None:
-##        temp_line = line(previous_hex.location,temp_hex.location)
-##        temp_line.draw_line()
-##    previous_hex = temp_hex
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-####figure()
-##
-##p_start = location(0,0)
-##p_end = location(-200,-50)
-##previous_hex = None
-##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-##    temp_hex.draw()
-##    if previous_hex != None:
-##        temp_line = line(previous_hex.location,temp_hex.location)
-##        temp_line.draw_line()
-##    previous_hex = temp_hex
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-####figure()
+figure()
+p_start = location(0,0)
+p_end = location(0,500)
+previous_hex = None
+for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+    temp_hex.draw()
+    if previous_hex != None:
+        temp_line = line(previous_hex.location,temp_hex.location)
+        temp_line.draw_line()
+    previous_hex = temp_hex
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+show()
 
-##p_start = location(-200,50)
-##p_end = location(-200,-50)
-##previous_hex = None
-##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-##    temp_hex.draw()
-##    if previous_hex != None:
-##        temp_line = line(previous_hex.location,temp_hex.location)
-##        temp_line.draw_line()
-##    previous_hex = temp_hex
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-####figure()
-##
-##p_start = location(200,50)
-##p_end = location(-200,-50)
-##previous_hex = None
-##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-##    temp_hex.draw()
-##    if previous_hex != None:
-##        temp_line = line(previous_hex.location,temp_hex.location)
-##        temp_line.draw_line()
-##    previous_hex = temp_hex
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+figure()
+p_start = location(0,0)
+p_end = location(0,-500)
+previous_hex = None
+for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+    temp_hex.draw()
+    if previous_hex != None:
+        temp_line = line(previous_hex.location,temp_hex.location)
+        temp_line.draw_line()
+    previous_hex = temp_hex
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+show()
+
+figure()
+p_start = location(0,0)
+p_end = location(-200,-50)
+previous_hex = None
+for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+    temp_hex.draw()
+    if previous_hex != None:
+        temp_line = line(previous_hex.location,temp_hex.location)
+        temp_line.draw_line()
+    previous_hex = temp_hex
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+show()
+
+figure()
+p_start = location(-200,-50)
+p_end = location(-200,50)
+previous_hex = None
+for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+    temp_hex.draw()
+    if previous_hex != None:
+        temp_line = line(previous_hex.location,temp_hex.location)
+        temp_line.draw_line()
+    previous_hex = temp_hex
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+show()
+
+figure()
+
+p_start = location(200,50)
+p_end = location(-200,-50)
+previous_hex = None
+for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+    temp_hex.draw()
+    if previous_hex != None:
+        temp_line = line(previous_hex.location,temp_hex.location)
+        temp_line.draw_line()
+    previous_hex = temp_hex
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+show()
+
 ####figure()
 
 ##test_location = location(0,0)
