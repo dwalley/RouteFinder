@@ -125,14 +125,14 @@ class hexcontrol:
         
 
     def line_of_hexagons(self,p_start,p_end,use_convex_hull = True):
-        ### generator for a iterator which returns hexagons which from line from p_start to p_end ###
+        ### generator for a iterator which returns hexagons which form line from p_start to p_end ###
         # Note: p_start must be within the hexagon field
         # guarantees that first hex contains p_start and last hex contains p_end or else p_end is off the field
-##        print('line of hexagons called with use_convex_hull = '+str(use_convex_hull))
+        print('line of hexagons called with use_convex_hull = '+str(use_convex_hull))
         current_hex = self.lowest_hex_containing_point(p_start,use_convex_hull)
-##        print('starting hex location is '+str(current_hex.location))
+        print('starting hex location is '+str(current_hex.location))
         reference_line = world.line(current_hex.location,p_end)
-##        print('reference line is '+str(reference_line))
+        print('reference line is '+str(reference_line))
         current_distance = current_hex.distance_between(current_hex.location,p_end)
         yield current_hex
         for temp_hex in current_hex.adjacent:
@@ -152,17 +152,22 @@ class hexcontrol:
                     # we found an adjacent hex on the other side of the reference line
                     candidate_hexs.append(temp_hex)
             if candidate_hexs == []: # we did not find any hexs on the other side of the reference line
+                print('we returned because we did not find any hexs on the other side of the reference line')
                 return
             else:
+                print('candidate hexs are',candidate_hexs)
                 old_current_hex = current_hex
                 for temp_hex in candidate_hexs:
                     if temp_hex.distance_between(temp_hex.location,p_end) < current_distance:
                         current_hex = temp_hex
                         current_distance = temp_hex.distance_between(temp_hex.location,p_end)
                 if old_current_hex == current_hex: # none of the candidate hexs are better than before
+                    print('we returned because none of the candidate hexs are better than before')
                     return
             yield current_hex
-        # when we get this far, current_hex contains p_end
+        print('current_hex.is_interior(p_end) != True is',current_hex.is_interior(p_end) != True)
+        print('len(current_hex.adjacent) == 6 is',len(current_hex.adjacent) == 6)
+        # when we get this far, current_hex contains p_end or we have reached the edge of the hex field
         return
 
     def lowest_hex_containing_point(self,p,use_convex_hull=True):

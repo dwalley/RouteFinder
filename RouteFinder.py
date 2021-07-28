@@ -98,7 +98,7 @@ test_hex=hexagon(0,0,150,90,my_world)
 #for i in test_hex.vertices(): print ('x=',i.x1,' y=',i.x2)
 
 # n is the depth of the hexagon tree, must be at least 3
-n=5
+n=3
 
 #print ('making subhexagons for',n,'level tree')
 
@@ -330,23 +330,23 @@ show()
 ##show()
 
 print('drawing various lines')
-figure()
-p_start = location(0,0)
-p_end = location(100,100)
-previous_hex = None
-for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-    temp_hex.draw()
-    if previous_hex != None:
-        temp_line = line(previous_hex.location,temp_hex.location)
-        temp_line.draw_line()
-    previous_hex = temp_hex
-axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-show()
+##figure()
+##p_start = location(0,0)
+##p_end = location(100,100)
+##previous_hex = None
+##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+##    temp_hex.draw()
+##    if previous_hex != None:
+##        temp_line = line(previous_hex.location,temp_hex.location)
+##        temp_line.draw_line()
+##    previous_hex = temp_hex
+##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+##show()
 
 figure()
 p_start = location(0,0)
-p_end = location(0,500)
+p_end = location(0,50)
 previous_hex = None
 for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
     temp_hex.draw()
@@ -358,179 +358,177 @@ axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my
 title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
 show()
 
-figure()
-p_start = location(0,0)
-p_end = location(0,-500)
-previous_hex = None
-for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-    temp_hex.draw()
-    if previous_hex != None:
-        temp_line = line(previous_hex.location,temp_hex.location)
-        temp_line.draw_line()
-    previous_hex = temp_hex
-axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-show()
+##figure()
+##p_start = location(0,0)
+##p_end = location(0,-100)
+##previous_hex = None
+##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+##    temp_hex.draw()
+##    if previous_hex != None:
+##        temp_line = line(previous_hex.location,temp_hex.location)
+##        temp_line.draw_line()
+##    previous_hex = temp_hex
+##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+##show()
 
-figure()
-p_start = location(0,0)
-p_end = location(-200,-50)
-previous_hex = None
-for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-    temp_hex.draw()
-    if previous_hex != None:
-        temp_line = line(previous_hex.location,temp_hex.location)
-        temp_line.draw_line()
-    previous_hex = temp_hex
-axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-show()
+##figure()
+##p_start = location(0,0)
+##p_end = location(-200,-50)
+##previous_hex = None
+##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+##    temp_hex.draw()
+##    if previous_hex != None:
+##        temp_line = line(previous_hex.location,temp_hex.location)
+##        temp_line.draw_line()
+##    previous_hex = temp_hex
+##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+##show()
 
-figure()
-p_start = location(-200,-50)
-p_end = location(-200,50)
-previous_hex = None
-for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-    temp_hex.draw()
-    if previous_hex != None:
-        temp_line = line(previous_hex.location,temp_hex.location)
-        temp_line.draw_line()
-    previous_hex = temp_hex
-axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-show()
+##figure()
+##p_start = location(-200,-50)
+##p_end = location(-200,50)
+##previous_hex = None
+##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+##    temp_hex.draw()
+##    if previous_hex != None:
+##        temp_line = line(previous_hex.location,temp_hex.location)
+##        temp_line.draw_line()
+##    previous_hex = temp_hex
+##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+##show()
 
-figure()
+##figure()
+##
+##p_start = location(200,50)
+##p_end = location(-200,-50)
+##previous_hex = None
+##for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
+##    temp_hex.draw()
+##    if previous_hex != None:
+##        temp_line = line(previous_hex.location,temp_hex.location)
+##        temp_line.draw_line()
+##    previous_hex = temp_hex
+##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+##title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
+##show()
 
-p_start = location(200,50)
-p_end = location(-200,-50)
-previous_hex = None
-for temp_hex in test_hex_controler.line_of_hexagons(p_start,p_end):
-    temp_hex.draw()
-    if previous_hex != None:
-        temp_line = line(previous_hex.location,temp_hex.location)
-        temp_line.draw_line()
-    previous_hex = temp_hex
-axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-title('Line of hexagons from'+str(p_start)+'to'+str(p_end))
-show()
-
-####figure()
 
 ##test_location = location(0,0)
-##print 'location is',test_location
+##print ('location is',test_location)
 ##temp_containing_hex = test_hex_controler.lowest_hex_containing_point(test_location)
-##print 'temp_containing_hex is ',temp_containing_hex
-##print 'location is ',temp_containing_hex.location.x1, temp_containing_hex.location.x2
-##print 'outside diameter is ',temp_containing_hex.outside_diameter
+##print ('temp_containing_hex is ',temp_containing_hex)
+##print ('location is ',temp_containing_hex.location.x1, temp_containing_hex.location.x2)
+##print ('outside diameter is ',temp_containing_hex.outside_diameter)
 ##
 ##test_location = location(10,10)
-##print 'location is',test_location
+##print ('location is',test_location)
 ##temp_containing_hex = test_hex_controler.lowest_hex_containing_point(test_location)
-##print 'temp_containing_hex is ',temp_containing_hex
-##print 'location is ',temp_containing_hex.location.x1, temp_containing_hex.location.x2
-##print 'outside diameter is ',temp_containing_hex.outside_diameter
+##print ('temp_containing_hex is ',temp_containing_hex)
+##print ('location is ',temp_containing_hex.location.x1, temp_containing_hex.location.x2)
+##print ('outside diameter is ',temp_containing_hex.outside_diameter)
 ##
 ##test_location = location(50,50)
-##print 'location is',test_location
+##print ('location is',test_location)
 ##temp_containing_hex = test_hex_controler.lowest_hex_containing_point(test_location)
-##print 'temp_containing_hex is ',temp_containing_hex
-##print 'location is ',temp_containing_hex.location.x1, temp_containing_hex.location.x2
-##print 'outside diameter is ',temp_containing_hex.outside_diameter
+##print ('temp_containing_hex is ',temp_containing_hex)
+##print ('location is ',temp_containing_hex.location.x1, temp_containing_hex.location.x2)
+##print ('outside diameter is ',temp_containing_hex.outside_diameter)
 ##
 ##test_location = location(50,-50)
-##print 'location is',test_location
+##print ('location is',test_location)
 ##temp_containing_hex = test_hex_controler.lowest_hex_containing_point(test_location)
-##print 'temp_containing_hex is ',temp_containing_hex
-##print 'location is ',temp_containing_hex.location.x1, temp_containing_hex.location.x2
-##print 'outside diameter is ',temp_containing_hex.outside_diameter
+##print ('temp_containing_hex is ',temp_containing_hex)
+##print ('location is ',temp_containing_hex.location.x1, temp_containing_hex.location.x2)
+##print ('outside diameter is ',temp_containing_hex.outside_diameter)
+
+
+print ('generating random cost/benefit values for all levels of hex field')
+test_hex_controler.generate_random_costs()
+print ('done generating random cost/benefit values')
+
+file_name = 'testout.txt'
+print ('saving dictionaries',file_name)
+
+test_hex_controler.save_hex_tree(file_name,my_world)
+print ('done saving dictionaries')
+
+for draw_levels in range (0,min(6,n+1)):
+    figure()
+    print ('drawing all sublevels ',draw_levels)
+    print ('drawing all sublevels')
+    test_hex.draw_all_sublevels(draw_levels)
+    axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+    title('all sublevels for level '+str(draw_levels))
+
+    figure()
+    print ('drawing  nth sublevel ',draw_levels)
+    test_hex.draw_nth_sublevel(draw_levels)
+    axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+    title('all sublevel '+str(draw_levels))
+
+
+figure()
+print ('drawing all sublevels ',min(7,n))
+print ('drawing all sublevels')
+test_hex.draw_all_sublevels(min(7,n))
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+
+figure()
+print ('drawing  nth sublevel ',min(7,n))
+test_hex.draw_nth_sublevel(min(7,n))
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+
+
+figure()
+print ('drawing all sublevels with parent connections',min(7,n))
+print ('drawing all sublevels')
+test_hex.draw_all_sublevels_connected_parents(min(7,n))
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('all sublevels with parent connections')
+
+figure()
+print ('sublevels with adjacent connections',min(7,n))
+print ('drawing all sublevels')
+test_hex.draw_all_sublevels_connected_adjacent(min(7,n))
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('all sublevels with adjacent connections')
+
+figure()
+print ('drawing all sublevels with children connections',min(7,n))
+print ('drawing all sublevels')
+test_hex.draw_all_sublevels_connected_children(min(7,n))
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('all sublevels with children connections')
+
+figure()
+print ('drawing nth sublevel with adjacent connections',min(7,n))
+print ('drawing nth sublevel')
+test_hex.draw_nth_sublevel_connected_adjacent(min(7,n))
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('nth sublevel with adjacent connections')
+
+figure()
+print ('drawing nth sublevel connections without hexs',min(7,n))
+test_hex.draw_nth_adjacent_connections(min(7,n))
+axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
+title('nth sublevel connections without hexs')
 
 
 
-##print 'generating random cost/benefit values for all levels of hex field'
-##test_hex_controler.generate_random_costs()
-##print 'done generating random cost/benefit values'
-##
-##file_name = 'testout11.txt'
-##print 'saving dictionaries',file_name
-##
-##test_hex_controler.save_hex_tree(file_name,my_world)
-##print 'done saving dictionaries'
 
-##for draw_levels in range (0,min(6,n+1)):
-##    figure()
-##    print 'drawing all sublevels ',draw_levels
-##    print 'drawing all sublevels'
-##    test_hex.draw_all_sublevels(draw_levels)
-##    axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##    title('all sublevels for level '+str(draw_levels))
-##
-##    figure()
-##    print 'drawing  nth sublevel ',draw_levels
-##    test_hex.draw_nth_sublevel(draw_levels)
-##    axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##    title('all sublevel '+str(draw_levels))
+doer = myalgorithms.myalgorithms()
+print ('generating difference list')
+difference_list = test_hex_controler.compare_centers()
+print ('doing merge sort')
+value_list = doer.merge_sort([i[2] for i in difference_list])
+print ("first 100 entries in Sorted list of center differences is",\
+      [value_list[i] for i in range(0,min([len(value_list),100]))])
 
-
-##figure()
-##print 'drawing all sublevels ',min(7,n)
-##print 'drawing all sublevels'
-##test_hex.draw_all_sublevels(min(7,n))
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##
-##figure()
-##print 'drawing  nth sublevel ',min(7,n)
-##test_hex.draw_nth_sublevel(min(7,n))
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##
-
-##figure()
-##print 'drawing all sublevels with parent connections',min(7,n)
-##print 'drawing all sublevels'
-##test_hex.draw_all_sublevels_connected_parents(min(7,n))
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('all sublevels with parent connections')
-
-##figure()
-##print 'drawing all sublevels with adjacent connections',min(7,n)
-##print 'drawing all sublevels'
-##test_hex.draw_all_sublevels_connected_adjacent(min(7,n))
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('all sublevels with adjacent connections')
-
-##figure()
-##print 'drawing all sublevels with children connections',min(7,n)
-##print 'drawing all sublevels'
-##test_hex.draw_all_sublevels_connected_children(min(7,n))
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('all sublevels with children connections')
-
-##figure()
-##print 'drawing nth sublevel with adjacent connections',min(7,n)
-##print 'drawing nth sublevel'
-##test_hex.draw_nth_sublevel_connected_adjacent(min(7,n))
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('nth sublevel with adjacent connections')
-
-##figure()
-##print 'drawing nth sublevel connections without hexs',min(7,n)
-##test_hex.draw_nth_adjacent_connections(min(7,n))
-##axis([my_world.x1_lower_limit,my_world.x1_upper_limit,my_world.x2_lower_limit,my_world.x2_upper_limit])
-##title('nth sublevel connections without hexs')
-
-
-
-
-##doer = myalgorithms.myalgorithms()
-##print 'generating difference list'
-##difference_list = test_hex_controler.compare_centers()
-##print 'doing merge sort'
-##value_list = doer.merge_sort([i[2] for i in difference_list])
-##print "first 100 entries in Sorted list of center differences is",\
-##      [value_list[i] for i in range(0,min([len(value_list),100]))]
-
-##print 'checking number of children'
-##test_hex_controler.check_children()
+print ('checking number of children')
+test_hex_controler.check_children()
 
 show()
 
